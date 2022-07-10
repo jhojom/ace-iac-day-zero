@@ -45,33 +45,33 @@ resource "azurerm_network_security_rule" "http" {
   network_security_group_name = azurerm_network_security_group.spoke2-app.name
 }
 
-resource "azurerm_network_security_rule" "ssh" {
-  access                      = "Allow"
-  direction                   = "Inbound"
-  name                        = "ssh"
-  priority                    = 110
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  source_address_prefix       = "*"
-  destination_port_range      = "22"
-  destination_address_prefix  = "*"
-  resource_group_name         = module.azure_spoke_2.vpc.resource_group
-  network_security_group_name = azurerm_network_security_group.spoke2-app.name
-}
+#resource "azurerm_network_security_rule" "ssh" {
+#  access                      = "Allow"
+#  direction                   = "Inbound"
+#  name                        = "ssh"
+#  priority                    = 110
+#  protocol                    = "Tcp"
+#  source_port_range           = "*"
+#  source_address_prefix       = "*"
+#  destination_port_range      = "22"
+#  destination_address_prefix  = "*"
+#  resource_group_name         = module.azure_spoke_2.vpc.resource_group
+#  network_security_group_name = azurerm_network_security_group.spoke2-app.name
+#}
 
-resource "azurerm_network_security_rule" "icmp" {
-  access                      = "Allow"
-  direction                   = "Inbound"
-  name                        = "icmp"
-  priority                    = 120
-  protocol                    = "Icmp"
-  source_port_range           = "*"
-  source_address_prefix       = "*"
-  destination_port_range      = "*"
-  destination_address_prefix  = "*"
-  resource_group_name         = module.azure_spoke_2.vpc.resource_group
-  network_security_group_name = azurerm_network_security_group.spoke2-app.name
-}
+#resource "azurerm_network_security_rule" "icmp" {
+#  access                      = "Allow"
+#  direction                   = "Inbound"
+#  name                        = "icmp"
+#  priority                    = 120
+#  protocol                    = "Icmp"
+#  source_port_range           = "*"
+#  source_address_prefix       = "*"
+#  destination_port_range      = "*"
+#  destination_address_prefix  = "*"
+#  resource_group_name         = module.azure_spoke_2.vpc.resource_group
+#  network_security_group_name = azurerm_network_security_group.spoke2-app.name
+#}
 
 resource "azurerm_network_interface_security_group_association" "main" {
   network_interface_id      = azurerm_network_interface.main.id
